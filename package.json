@@ -1,0 +1,20 @@
+{
+  "name": "kt-cloud-fullstack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "update": "git add . && git commit -m 'update' && git push"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youserstack/kt-cloud-fullstack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youserstack/kt-cloud-fullstack/issues"
+  },
+  "homepage": "https://github.com/youserstack/kt-cloud-fullstack#readme"
+}

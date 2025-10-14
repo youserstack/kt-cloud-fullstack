@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM 조작 실습 환경</title>
+    <style>
+        /* CSS 스타일 */
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+
+        #container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .data-list li {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .data-list li:hover {
+            background-color: #e0f7fa;
+        }
+
+        /* JavaScript로 토글할 클래스 */
+        .highlight {
+            background-color: #ffeb3b !important; /* !important는 실습용으로만 사용 권장 */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .btn-action {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-action:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <h1 id="main-title" class="dom-target">DOM 조작 실습 시작</h1>
+
+        <button id="change-text-btn" class="btn-action">텍스트 변경 및 클래스 토글</button>
+        <button id="add-item-btn" class="btn-action">새 목록 항목 추가</button>
+
+        <ul id="item-list" class="data-list">
+            <li class="list-item" data-id="1">첫 번째 항목 (클릭 시 삭제)</li>
+            <li class="list-item" data-id="2">두 번째 항목</li>
+            <li class="list-item" data-id="3">세 번째 항목</li>
+        </ul>
+
+        <div id="result-area" style="margin-top: 20px; padding: 10px; border: 1px solid #ccc;">
+            여기에 동적으로 요소가 추가됩니다.
+        </div>
+    </div>
+
+    <script>
+        // 여기에 DOM 조작 코드를 작성하여 실습하세요.
+        
+        // =======================================================
+        // 1. 요소 선택 실습
+        // =======================================================
+        const title = document.querySelector('#main-title'); // ID로 선택
+        const addItemButton = document.getElementById('add-item-btn'); // 구식 ID 선택
+        const listContainer = document.querySelector('#item-list');
+        const allListItems = document.querySelectorAll('.list-item'); // 모든 항목 선택 (NodeList)
+        
+        console.log("선택된 제목:", title.textContent);
+        
+        // =======================================================
+        // 2. 내용 변경 및 속성 조작 실습
+        // =======================================================
+        
+        // 버튼 클릭 시 제목 텍스트 변경 및 클래스 토글
+        document.querySelector('#change-text-btn').addEventListener('click', () => {
+            // 텍스트 내용 변경 (textContent)
+            title.textContent = "클릭되었습니다!"; 
+            
+            // 클래스 토글
+            title.classList.toggle('highlight'); 
+        });
+
+        // =======================================================
+        // 3. 요소 생성 및 추가 실습
+        // =======================================================
+        
+        addItemButton.addEventListener('click', () => {
+            // 1. 새로운 <li> 요소 생성
+            const newItem = document.createElement('li');
+            
+            // 2. 내용 설정 및 클래스/속성 부여
+            const itemNumber = listContainer.children.length + 1;
+            newItem.textContent = `동적으로 추가된 ${itemNumber}번 항목`;
+            newItem.classList.add('list-item');
+            newItem.setAttribute('data-id', itemNumber);
+            
+            // 3. 목록 컨테이너의 맨 뒤에 추가 (append 사용)
+            listContainer.append(newItem); 
+            
+            // 추가된 항목에 삭제 이벤트 리스너 등록
+            newItem.addEventListener('click', function() {
+                this.remove(); 
+            });
+            
+            // 결과 영역에 메시지 표시
+            document.querySelector('#result-area').innerHTML = `<p><strong>항목 ${itemNumber}</strong>가 추가되었습니다.</p>`;
+        });
+
+        // =======================================================
+        // 4. 기존 요소 삭제 실습 (각 항목에 이벤트 리스너 등록)
+        // =======================================================
+
+        allListItems.forEach(item => {
+            item.addEventListener('click', function() {
+                if (confirm(`'${this.textContent}' 항목을 정말 삭제하시겠습니까?`)) {
+                    this.remove(); // 클릭된 li 요소 자체를 삭제
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

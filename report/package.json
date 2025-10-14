@@ -1,0 +1,12 @@
+{
+  "name": "report",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "update": "git add . && git commit -m 'update' && git push"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

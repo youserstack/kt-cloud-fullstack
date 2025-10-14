@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="index2.js"></script>
+
+    <style>
+      /* CSS 스타일 */
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+
+      #container {
+        width: 80%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .data-list {
+        list-style: none;
+        padding: 0;
+        margin-top: 15px;
+      }
+
+      .data-list li {
+        padding: 10px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .data-list li:hover {
+        background-color: #e0f7fa;
+      }
+
+      /* JavaScript로 토글할 클래스 */
+      .highlight {
+        background-color: #ffeb3b !important; /* !important는 실습용으로만 사용 권장 */
+        font-weight: bold;
+        color: #333;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .btn-action {
+        padding: 10px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: background-color 0.3s;
+      }
+
+      .btn-action:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="container">
+        <h1 id="main-title" class="dom-target">DOM 조작 실습 시작</h1>
+
+        <button id="change-text-btn" class="btn-action">
+          텍스트 변경 및 클래스 토글
+        </button>
+        <button id="add-item-btn" class="btn-action">새 목록 항목 추가</button>
+
+        <ul id="item-list" class="data-list">
+          <li class="list-item" data-id="1">첫 번째 항목 (클릭 시 삭제)</li>
+          <li class="list-item" data-id="2">두 번째 항목</li>
+          <li class="list-item" data-id="3">세 번째 항목</li>
+        </ul>
+
+        <img id="myImg" src="https://picsum.photos/300/200" alt="랜덤 이미지" />
+        <a id="myLink" href="https://naver.com">Naver</a>
+
+        <div
+          id="result-area"
+          style="margin-top: 20px; padding: 10px; border: 1px solid #ccc"
+        >
+          여기에 동적으로 요소가 추가됩니다.
+          <div id="child">자식요소</div>
+        </div>
+
+        <div id="element-to-remove">강아지</div>
+      </div>
+    </main>
+  </body>
+</html>
