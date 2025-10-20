@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "strict": true,
+    // "noEmit": true, // js 파일생성여부
+    "rootDir": "./src", // TS 파일 경로
+    "outDir": "./dist" // JS 파일이 생성될 폴더
+  },
+  "include": ["./**/*.ts"]
+}
