@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kt-cloud-fullstack/static/css/main.69c81a16.css",
-    "main.js": "/kt-cloud-fullstack/static/js/main.0227e11a.js",
-    "index.html": "/kt-cloud-fullstack/index.html",
-    "main.69c81a16.css.map": "/kt-cloud-fullstack/static/css/main.69c81a16.css.map",
-    "main.0227e11a.js.map": "/kt-cloud-fullstack/static/js/main.0227e11a.js.map"
+    "main.css": "/static/css/main.69c81a16.css",
+    "main.js": "/static/js/main.287ca50f.js",
+    "index.html": "/index.html",
+    "main.69c81a16.css.map": "/static/css/main.69c81a16.css.map",
+    "main.287ca50f.js.map": "/static/js/main.287ca50f.js.map"
   },
   "entrypoints": [
     "static/css/main.69c81a16.css",
-    "static/js/main.0227e11a.js"
+    "static/js/main.287ca50f.js"
   ]
 }
