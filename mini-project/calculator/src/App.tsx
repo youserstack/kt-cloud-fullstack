@@ -14,13 +14,13 @@ export default function App() {
         <BrowserRouter basename="/kt-cloud-fullstack">
           <Routes>
             <Route element={<Layout />}>
-              {/* public */}
-              <Route path="/login" element={<Login />} />
+              {/* Public Routes */}
+              <Route path="/" element={<Login />} />
               <Route path="/about" element={<About />} />
 
-              {/* private */}
+              {/* Private Routes */}
               <Route element={<ProtectedRoute />}>
-                <Route path="/" element={<Calc />} />
+                <Route path="/calc" element={<Calc />} />
               </Route>
             </Route>
           </Routes>

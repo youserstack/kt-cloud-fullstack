@@ -28,7 +28,7 @@ export default function Layout() {
             "
           >
             <li>
-              <Link to="/">계산기</Link>
+              <Link to="/calc">계산기</Link>
             </li>
             <li>
               <Link to="/about">만든이</Link>

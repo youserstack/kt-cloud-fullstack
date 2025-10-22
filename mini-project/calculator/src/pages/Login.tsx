@@ -16,7 +16,7 @@ export default function Login() {
     const ok = login(name.trim());
     if (!ok) return; // 실패 시 이동하지 않음
 
-    const redirectTo = location?.state?.from?.pathname ?? "/";
+    const redirectTo = location?.state?.from?.pathname ?? "/calc";
     navigate(redirectTo, { replace: true });
   };
 
