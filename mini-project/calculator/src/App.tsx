@@ -4,7 +4,6 @@ import Layout from "./pages/Layout";
 import Login from "./pages/Login";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import { HashRouter, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./store/auth";
 
 export default function App() {
