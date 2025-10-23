@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/kt-cloud-fullstack/static/css/main.69c81a16.css",
-    "main.js": "/kt-cloud-fullstack/static/js/main.cabd3b28.js",
-    "index.html": "/kt-cloud-fullstack/index.html",
-    "main.69c81a16.css.map": "/kt-cloud-fullstack/static/css/main.69c81a16.css.map",
-    "main.cabd3b28.js.map": "/kt-cloud-fullstack/static/js/main.cabd3b28.js.map"
+    "main.css": "/kt-cloud-fullstack/mini-project/calculator/static/css/main.69c81a16.css",
+    "main.js": "/kt-cloud-fullstack/mini-project/calculator/static/js/main.df8390e0.js",
+    "index.html": "/kt-cloud-fullstack/mini-project/calculator/index.html",
+    "main.69c81a16.css.map": "/kt-cloud-fullstack/mini-project/calculator/static/css/main.69c81a16.css.map",
+    "main.df8390e0.js.map": "/kt-cloud-fullstack/mini-project/calculator/static/js/main.df8390e0.js.map"
   },
   "entrypoints": [
     "static/css/main.69c81a16.css",
-    "static/js/main.cabd3b28.js"
+    "static/js/main.df8390e0.js"
   ]
 }

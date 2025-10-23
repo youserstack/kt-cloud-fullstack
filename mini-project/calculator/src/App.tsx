@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <BrowserRouter basename="/kt-cloud-fullstack">
+        <BrowserRouter basename="/kt-cloud-fullstack/mini-project/calculator">
           <Routes>
             <Route element={<Layout />}>
               {/* Public Routes */}
