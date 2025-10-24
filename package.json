@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/youserstack/kt-cloud-fullstack/issues"
   },
-  "homepage": "https://youserstack.github.io/kt-cloud-fullstack"
+  "homepage": "https://youserstack.github.io/kt-cloud-fullstack",
+  "dependencies": {
+    "@nestjs/common": "^11.1.7",
+    "@nestjs/core": "^11.1.7",
+    "@nestjs/platform-express": "^11.1.7",
+    "reflect-metadata": "^0.2.2",
+    "typescript": "^5.9.3"
+  }
 }
