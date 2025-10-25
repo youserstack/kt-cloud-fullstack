@@ -1,0 +1,27 @@
+<nav role="navigation" aria-label="pagination" class="mx-auto flex w-full justify-center">
+  <ul class="flex flex-row items-center gap-1">
+    {{#if paginator.hasPrev}}
+      <li>
+        <a href="?page={{paginator.prevPage}}" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9">
+          &lt;
+        </a>
+      </li>
+    {{/if}}
+
+    {{#each paginator.pageList}}
+      <li>
+        <a href="?page={{this}}" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border {{#if (eq this ../paginator.page)}}border-primary{{else}}border-input{{/if}} bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 w-9">
+          {{this}}
+        </a>
+      </li>
+    {{/each}}
+
+    {{#if paginator.hasNext}}
+      <li>
+        <a href="?page={{paginator.nextPage}}" class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 hover:bg-accent hover:text-accent-foreground h-9 w-9">
+          &gt;
+        </a>
+      </li>
+    {{/if}}
+  </ul>
+</nav>

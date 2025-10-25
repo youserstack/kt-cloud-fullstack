@@ -1,0 +1,38 @@
+<html lang='ko'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/css/output.css' />
+  </head>
+  <body class='bg-background text-foreground'>
+    {{!-- {{> preloader}}
+      {{> navbar}}
+      {{> sidebar}}
+      {{> content}}
+      {{> footer}} --}}
+    {{!-- {{> script}} --}}
+
+    <section class='container mx-auto px-4'>
+      <header class='py-6'>
+        <nav class='flex items-center justify-between'>
+          <a href='/posts' class='text-2xl font-bold'>게시판</a>
+          <div>
+            <a
+              href='/posts/new'
+              class='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2'
+            >
+              새 글 작성
+            </a>
+          </div>
+        </nav>
+      </header>
+      <main>
+        {{{body}}}
+      </main>
+      <footer class='text-center py-6 text-muted-foreground'>
+        <p class='text-sm px-4'>© 2024 youserstack. all rights reserved.</p>
+      </footer>
+    </section>
+  </body>
+</html>

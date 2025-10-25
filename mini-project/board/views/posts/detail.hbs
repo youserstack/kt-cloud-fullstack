@@ -1,0 +1,39 @@
+<div class='rounded-lg border bg-card text-card-foreground shadow-sm'>
+  <div class='p-6 space-y-1.5'>
+    <h1
+      class='text-2xl font-semibold leading-none tracking-tight'
+    >{{post.title}}</h1>
+    <p class='text-sm text-muted-foreground'>작성자:
+      {{post.author}}
+      | 작성일:
+      {{post.createdAt}}</p>
+  </div>
+  <div class='p-6 pt-0'>
+    <div class='prose max-w-none'>
+      {{{post.content}}}
+    </div>
+  </div>
+  <div class='flex items-center p-6 pt-0'>
+    <a
+      href='/posts'
+      class='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground h-9 px-4 py-2'
+    >
+      목록으로
+    </a>
+    <div class='ml-auto flex gap-2'>
+      <a
+        href='/posts/edit/{{post._id}}'
+        class='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 px-4 py-2'
+      >
+        수정
+      </a>
+      <a
+        href='/posts/delete/{{post._id}}'
+        class='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90 h-9 px-4 py-2'
+        onclick="return confirm('정말로 삭제하시겠습니까?');"
+      >
+        삭제
+      </a>
+    </div>
+  </div>
+</div>
