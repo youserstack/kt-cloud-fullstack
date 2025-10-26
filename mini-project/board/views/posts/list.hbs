@@ -1,34 +1,89 @@
-<div class="rounded-lg border bg-card text-card-foreground shadow-sm">
-  <div class="p-6">
-    <h1 class="text-2xl font-semibold leading-none tracking-tight">게시글 목록</h1>
+<div class="space-y-8">
+  <div class="text-center">
+    <h1 class="text-4xl font-bold tracking-tight">NestJS 게시판</h1>
+    <p class="mt-2 text-lg text-muted-foreground">자유롭게 글을 남겨주세요.</p>
   </div>
-  <div class="p-0">
-    <div class="relative w-full overflow-auto">
-      <table class="w-full caption-bottom text-sm">
-        <thead class="[&_tr]:border-b">
-          <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-            <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[100px]">번호</th>
-            <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">제목</th>
-            <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[150px]">작성자</th>
-            <th class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[200px]">작성일</th>
-          </tr>
-        </thead>
-        <tbody class="[&_tr:last-child]:border-0">
-          {{#each posts}}
-            <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
-              <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">{{this.postNumber}}</td>
-              <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium">
-                <a href="/posts/{{this._id}}" class="hover:underline">{{this.title}}</a>
-              </td>
-              <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">{{this.author}}</td>
-              <td class="p-4 align-middle [&:has([role=checkbox])]:pr-0">{{this.createdAt}}</td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
+
+  <div class="rounded-lg border bg-card text-card-foreground shadow-sm">
+    <div class="p-6 flex items-center justify-between">
+      <h2 class="text-xl font-semibold">게시글 목록</h2>
+      <form action="/posts" method="GET" class="flex gap-2">
+        <input
+          type="search"
+          name="search"
+          value="{{search}}"
+          placeholder="제목으로 검색..."
+          class="flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 sm:w-[250px]"
+        />
+        <button
+          type="submit"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80 h-9 px-4 py-2"
+        >검색</button>
+      </form>
     </div>
-  </div>
-  <div class="flex items-center justify-end p-6">
-    {{> pagination}}
+    <div class="p-0">
+      <div class="relative w-full overflow-auto">
+        <table class="w-full caption-bottom text-sm">
+          <thead class="[&_tr]:border-b">
+            <tr
+              class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+            >
+              <th
+                class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[100px]"
+              >번호</th>
+              <th
+                class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0"
+              >제목</th>
+              <th
+                class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[150px]"
+              >작성자</th>
+              <th
+                class="h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0 w-[200px]"
+              >작성일</th>
+            </tr>
+          </thead>
+          <tbody class="[&_tr:last-child]:border-0">
+            {{#each posts}}
+              <tr
+                class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted"
+              >
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >{{this.postNumber}}</td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0 font-medium"
+                >
+                  <a
+                    href="/posts/{{this._id}}"
+                    class="hover:underline"
+                  >{{this.title}}</a>
+                </td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >{{this.author}}</td>
+                <td
+                  class="p-4 align-middle [&:has([role=checkbox])]:pr-0"
+                >{{this.createdAt}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        {{#unless posts}}
+          <div class="text-center p-10 text-muted-foreground">
+            <p>게시글이 없습니다.</p>
+            <a
+              href="/posts/new"
+              class="mt-4 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-9 px-4 py-2"
+            >
+              첫 글 작성하기
+            </a>
+          </div>
+        {{/unless}}
+      </div>
+    </div>
+    <div class="flex items-center justify-end p-6">
+      {{!-- partial element --}}
+      {{> pagination}}
+    </div>
   </div>
 </div>

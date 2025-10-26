@@ -1,14 +1,24 @@
-<main>
-  <section>
-    <h1>홈페이지</h1>
-
-    {{! 전달받은 객체 }}
-    {{!-- <p>{{hello}}</p> --}}
-
-    {{! views/partials/posts/list.hbs }}
-    {{!-- {{> list}} --}}
-
-    {{!-- {{> posts/list}} --}}
-    {{!-- {{> posts/detail}} --}}
-  </section>
-</main>
+<div
+  class='flex flex-col items-center justify-center text-center px-4 py-16 sm:py-24'
+>
+  <div class='max-w-3xl'>
+    <h1 class='text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl'>
+      <span class='block'>Welcome to</span>
+      <span class='block text-primary'>NestJS Board</span>
+    </h1>
+    <p
+      class='mt-6 max-w-md mx-auto text-lg text-muted-foreground sm:text-xl md:mt-8 md:max-w-2xl'
+    >
+      NestJS, Handlebars, Tailwind CSS로 만든 게시판 프로젝트입니다. 자유롭게
+      게시글을 둘러보고, 직접 작성해보세요.
+    </p>
+    <div class='mt-8 flex justify-center gap-4'>
+      <a
+        href='/posts'
+        class='inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground shadow hover:bg-primary/90 h-10 px-8'
+      >
+        게시글 보러가기
+      </a>
+    </div>
+  </div>
+</div>

@@ -14,6 +14,7 @@ import { PostsService } from './posts.service';
 import type { Request, Response } from 'express';
 import { CreatePostDto } from './dto/create-post.dto';
 
+// 라우팅
 @Controller('posts') // localhost:8080/posts
 export class PostsController {
   constructor(private postsService: PostsService) {} // 서비스 의존성주입

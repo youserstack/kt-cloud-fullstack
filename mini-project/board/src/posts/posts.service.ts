@@ -4,6 +4,7 @@ import { Model } from 'mongoose';
 import { Post } from './interfaces/post.interface';
 import { CreatePostDto } from './dto/create-post.dto';
 
+// 코어
 @Injectable()
 export class PostsService {
   constructor(
@@ -11,6 +12,7 @@ export class PostsService {
     private post: Model<Post>,
   ) {}
 
+  // create
   async createPost(createPostDto: CreatePostDto): Promise<Post> {
     // 게시글 번호를 생성하기 위해 현재 게시글 수를 조회합니다.
     const totalPosts = await this.post.countDocuments().exec();
@@ -20,24 +22,7 @@ export class PostsService {
     return newPost.save();
   }
 
-  async getPostById(id: string): Promise<Post> {
-    const post = await this.post.findById(id).lean<Post>().exec(); // lean<제네릭타입> -> js객체반환!
-    if (!post) throw new NotFoundException(`Post with id ${id} not found`);
-    return post;
-  }
-
-  async updatePost(id: string, updatePostDto: CreatePostDto): Promise<Post> {
-    const post = await this.post
-      .findByIdAndUpdate(id, updatePostDto, { new: true })
-      .exec();
-    if (!post) throw new NotFoundException(`Post with id ${id} not found`);
-    return post;
-  }
-
-  async deletePost(id: string): Promise<void> {
-    await this.post.findByIdAndDelete(id).exec();
-  }
-
+  // read
   async getPosts(
     page: number,
     search: string,
@@ -60,5 +45,25 @@ export class PostsService {
     const paginator = createPaginator({ page, perPage, totalCount });
 
     return { posts, paginator };
+  }
+
+  async getPostById(id: string): Promise<Post> {
+    const post = await this.post.findById(id).lean<Post>().exec(); // lean<제네릭타입> -> js객체반환!
+    if (!post) throw new NotFoundException(`Post with id ${id} not found`);
+    return post;
+  }
+
+  // update
+  async updatePost(id: string, updatePostDto: CreatePostDto): Promise<Post> {
+    const post = await this.post
+      .findByIdAndUpdate(id, updatePostDto, { new: true })
+      .exec();
+    if (!post) throw new NotFoundException(`Post with id ${id} not found`);
+    return post;
+  }
+
+  // delete
+  async deletePost(id: string): Promise<void> {
+    await this.post.findByIdAndDelete(id).exec();
   }
 }
